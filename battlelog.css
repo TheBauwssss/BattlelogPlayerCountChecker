@@ -1,0 +1,48 @@
+#spoof-warning {
+	width: 32px;
+	height: 32px;
+	background-image: url('http://rick-soft.com/download/warning-32.png');
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+#spoof-warning-small {
+	width: 16px;
+	height: 16px;
+	background-image: url('http://rick-soft.com/download/warning-16.png');
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+#spoof-ok {
+	width: 32px;
+	height: 32px;
+	background-image: url('http://rick-soft.com/download/ok-32.png');
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+#spoof-ok-small {
+	width: 16px;
+	height: 16px;
+	background-image: url('http://rick-soft.com/download/ok-16.png');
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+#spoof-text {
+	display: inline;
+	text-align: left;
+}
