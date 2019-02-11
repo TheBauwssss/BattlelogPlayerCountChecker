@@ -11,7 +11,7 @@
 	  "content_scripts": [
 		{
 		  "matches": ["*://*.battlefield.com/bf4*"],
-		  "js": ["jquery.min.js", "battlelog.js"],
+		  "js": ["jquery-3.3.1.js", "battlelog.js"],
 		   "css" : ["battlelog.css"]
 		}
 	  ]
