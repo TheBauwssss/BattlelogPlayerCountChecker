@@ -1,5 +1,5 @@
 var URL_BASE = "https://keeper.battlelog.com/snapshot/";
-var debug = true;
+var debug = false;
 
 //Setup jQuery AJAX error reporting
 $.ajaxSetup({
@@ -50,7 +50,8 @@ function processSearchResults()
 	$('.server-row').each(function (index) {
 		var guid = $(this).data("guid");
 		
-		console.log($($(this).find('td.players')[0]).html());
+		if (debug)
+			console.log($($(this).find('td.players')[0]).html());
 		
 		if ($($(this).find('td.players')[0]).html().includes('spoof'))
 			return;
@@ -76,7 +77,7 @@ function processSearchResults()
 						}
 					}
 					
-					console.log("Server actual player count: " + actualPlayerCount);
+					console.log("\tServer actual player count: " + actualPlayerCount);
 					
 					//$($(_this).find('td.players'))
 					
@@ -92,19 +93,19 @@ function processSearchResults()
 					
 					var reportedPlayerCount = parseInt(number);
 					
-					console.log("Server reported player count: " + reportedPlayerCount);
+					console.log("\tServer reported player count: " + reportedPlayerCount);
 					
 					if (actualPlayerCount != reportedPlayerCount)
 					{
-						console.log("Server is SPOOFING player count. Adding warning symbol.");
+						console.log("\tServer is SPOOFING player count. Adding warning symbol.");
 						
-					var html_obj = "<td class='players'><div id='spoof-warning-small'></div><span class='occupied spoof-text'>" + actualPlayerCount + "</span> / <span class='max spoof-text'>" + maxPlayers + "</span><p>SPOOFED</p></td>";
+					var html_obj = "<td class='players'><i class='far fa-lg fa-times-circle'></i><span class='occupied spoof-text'>" + actualPlayerCount + "</span> / <span class='max spoof-text'>" + maxPlayers + "</span><p>SPOOFED</p></td>";
 						
 						$(_this).find('td.players').replaceWith(html_obj);
 					} else {
-						console.log("Server is not spoofing player count. Adding ok/verified symbol.");
+						console.log("\tServer is not spoofing player count. Adding ok/verified symbol.");
 						
-						var html_obj = "<td class='players'><div id='spoof-ok-small'></div><span class='occupied spoof-text'>" + actualPlayerCount + "</span> / <span class='max spoof-text'>" + maxPlayers + "</span></td>";
+						var html_obj = "<td class='players'><i class='far fa-lg fa-check-circle'></i><span class='occupied spoof-text'>" + actualPlayerCount + "</span> / <span class='max spoof-text'>" + maxPlayers + "</span></td>";
 						
 						$(_this).find('td.players').replaceWith(html_obj);
 					}
@@ -128,8 +129,9 @@ function processServerPage()
 		dataType: 'json',
 		success: function( data ) {
 			data = parse(data); //Make sure data is parsed correctly for Firefox and IE
-			
-			console.log(data);
+
+			if (debug)
+				console.log(data);
 			
 			if (data.snapshot.status == "SUCCESS")
 			{
@@ -161,13 +163,13 @@ function processServerPage()
 				{
 					console.log("Server is SPOOFING player count. Adding warning symbol.");
 					
-					var html_obj = "<div id='spoof-warning'></div><h5 id='spoof-text'>" + actualPlayerCount + " / " + maxPlayers + "</h5><h5>SPOOFED</h5>";
+					var html_obj = "<i class='far fa-lg fa-times-circle'></i><h5 id='spoof-text'>" + actualPlayerCount + " / " + maxPlayers + "</h5><h5>SPOOFED</h5>";
 					
 					$(playerCountObject).replaceWith(html_obj);
 				} else {
 					console.log("Server is not spoofing player count. Adding ok/verified symbol.");
 					
-					var html_obj = "<div id='spoof-ok'></div><h5 id='spoof-text'>" + actualPlayerCount + " / " + maxPlayers + "</h5><h5>VERIFIED</h5>";
+					var html_obj = "<i class='far fa-lg fa-check-circle'></i><h5 id='spoof-text'>" + actualPlayerCount + " / " + maxPlayers + "</h5><h5>VERIFIED</h5>";
 					
 					$(playerCountObject).replaceWith(html_obj);
 				}
