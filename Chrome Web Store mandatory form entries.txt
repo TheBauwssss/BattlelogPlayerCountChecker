@@ -1,0 +1,9 @@
+==== Privacy Practices ====
+
+Single purpose: When using the server browser for the game Battlefield 4 each server you can play on reports a number of currently active players. The number of active players is provided by the server and may be valid, or the server may purposefully spoof this number and report an artificially inflated player count. This extension enriches the server browsing experience for BF4 by checking if a server supplied an honest player count, if it did the server is marked with a green check mark. If the server lied about its player count, then this extension will calculate the actual number of players currently playing on the server and replace the wrong number with the correct one. In addition it will display a red cross next to the player count, along with the text "SPOOFED" to indicate to the user that this server was dishonest in providing the number of players currently online.
+
+Permission justification: The extension needs to access the Battlefield 4 website, and the Battlefield 4 website ONLY, to be able to check the displayed player counts for each server and modify them if incorrect, along with displaying a red cross or a green check mark depending on if the server was honest or not.
+
+Are you using remote code?: No
+
+Data usage: Nothing
