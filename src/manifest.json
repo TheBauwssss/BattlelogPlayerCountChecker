@@ -1,7 +1,14 @@
   {
     "name": "Battlelog BF4 Player Count Checker",
+	"short_name": "BF4 Anti Spoofer",
     "version": "0.1.1",
     "description": "Makes servers with spoofed player counts visible and displays the proper, actual player count in place of the spoofed playercount!",
+	"icons": { 	"16": "icons/icon_16px.png",
+				"32": "icons/icon_32px.png",
+				"48": "icons/icon_48px.png",
+				"64": "icons/icon_64px.png",
+				"128": "icons/icon_128px.png" },
+	"homepage_url": "https://github.com/TheBauwssss/BattlelogPlayerCountChecker",
     "background": {
       "scripts": ["background.js"],
       "persistent": false
